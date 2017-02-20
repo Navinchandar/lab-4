@@ -19,7 +19,9 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	EditText ed_Text;
-	EditText ed_Content;
+	EditText ed_content;
+	Button b_read;
+	Button b_write;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,9 @@ public class MainActivity extends Activity {
         String path = getPreferences(MODE_PRIVATE).getString("fpath", "/sdcard/nav_file1"); 
         ed_Text = (EditText) findViewById(R.id.ed_Text);
         ed_Text.setText(path);
-        ed_Content = (EditText) findViewById(R.id.ed_content);
-      
+        ed_content = (EditText) findViewById(R.id.ed_content);
+        b_read = (Button) findViewById(R.id.b_read);
+        b_write= (Button) findViewById(R.id.b_write);
   
     OnClickListener saveClickListener = new OnClickListener() {			
 		@Override
@@ -40,7 +43,7 @@ public class MainActivity extends Activity {
 				writer = new FileWriter(file);
 				
 				/** Saving the contents to the file*/
-				writer.write(ed_Content.getText().toString());
+				writer.write(ed_content.getText().toString());
 				
 				/** Closing the writer object */
 				writer.close();
@@ -90,15 +93,12 @@ public class MainActivity extends Activity {
 				e.printStackTrace();
 			}
 			
-			ed_Content.setText(text);
+			ed_content.setText(text);
 		}
 	};
-	  Button b_read = (Button) findViewById(R.id.b_read);
-      b_read.setOnClickListener(saveClickListener);
-    Button btnRead = (Button) findViewById(R.id.b_write);
-    
- 
-    btnRead.setOnClickListener(readClickListener);
+	 
+      b_read.setOnClickListener(readClickListener);
+      b_write.setOnClickListener(saveClickListener);
     }
 
 

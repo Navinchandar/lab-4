@@ -35,7 +35,7 @@
         android:layout_alignLeft="@+id/ed_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="52dp"
-        android:text="Read" />
+        android:text="read" />
 
     <Button
         android:id="@+id/b_write"
@@ -44,6 +44,6 @@
         android:layout_alignRight="@+id/ed_content"
         android:layout_centerVertical="true"
         android:layout_marginRight="36dp"
-        android:text="Write" />
+        android:text="write" />
 
 </RelativeLayout>
